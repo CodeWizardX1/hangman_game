@@ -75,7 +75,7 @@ print(random_word)
 
 secret_word = ""
 for letter in random_word:
-    secret_word += "_"
+    secret_word += "_ "
 
 
 print(secret_word)
