@@ -16,6 +16,10 @@ game_words = {
     'Vehicles': ['airplane', 'motorcyle', 'bicycle', 'helicopter', 'submarine']
 }
 
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+num_wrong_answers = 0
+
 
 #Print game Intro
 print("""
@@ -42,13 +46,63 @@ Please select a category to begin:
 
 #List all categories
 i = 1
+category_dict = {}
 for key in game_words.keys():
     print(str(i) + "." + " " + key)
+    category_dict[str(i)] = key
     i += 1
-    
+
     
 print('\n')
-#Prompt player to chose a category
-category_selection = int(input('Enter the number of your category choice: '))
-while category_selection not in range(1,10):
-    category_selection = int(input('Enter the number of your category choice: '))
+
+
+#Prompt player to choose a category
+category_selection = input('Enter the number of your category choice: ')
+while category_selection not in category_dict:
+    category_selection = input('Oops! Please enter a number from 1 - 10: ')
+    
+
+#Tell the player their category
+print('Your category is: ' + category_dict[category_selection] + "!")
+
+#Pick a random word from that category and print "_" for each letter in the word
+print('Here is your SECRET word...')
+random_word = game_words[category_dict[category_selection]][random.randint(0,4)].lower()
+
+
+#JUST FOR TESTING PURPOSES
+print(random_word)
+
+secret_word = ""
+for letter in random_word:
+    secret_word += "_"
+
+
+print(secret_word)
+print(game_art.stage_0)
+
+
+print('\n')
+
+#Prompt user to guess a letter
+guessed_letter = input('Please guess a letter: ').lower()
+while guessed_letter not in alphabet:
+    guessed_letter = input('Oops! Please guess a letter: ').lower()
+
+
+#Count how many of the guessed letters are in the chosen word
+#if there aren't any, let the player know
+num_of_times_letter_occurs = random_word.count(guessed_letter)
+
+
+if guessed_letter in random_word:
+    if num_of_times_letter_occurs == 1:
+        print('Yes! There is {} {} in the word.'.format(num_of_times_letter_occurs, guessed_letter.upper()))
+    else:
+        print('Yes! There are {} {}\'s in the word.'.format(num_of_times_letter_occurs, guessed_letter.upper()))
+else:
+    print('Nope! There aren\'t any {}\'s is the word.'.format(guessed_letter.upper()))
+    num_wrong_answers += 1
+    game_art.hangman(num_wrong_answers)
+    
+
