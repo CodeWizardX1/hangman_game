@@ -1,6 +1,8 @@
 
 def hangman(wrong_answers):
-    if wrong_answers == 1:
+    if wrong_answers == 0:
+        print(stage_0)
+    elif wrong_answers == 1:
         print(stage_1)
     elif wrong_answers == 2:
         print(stage_2)
@@ -50,44 +52,48 @@ O   |
 
 
 stage_3 =r"""
-+---+
-|   |
-O   |
+ +---+
+ |   |
+ O   |
 /|   |
-    |
-    |
+     |
+     |
 =========
+
 """
 
 
 stage_4 =r"""
-+---+
-|   |
-O   |
+ +---+
+ |   |
+ O   |
 /|\  |
-    |
-    |
+     |
+     |
 =========
+
 """
 
 
 stage_5 =r"""
-+---+
-|   |
-O   |
+ +---+
+ |   |
+ O   |
 /|\  |
 /    |
-    |
+     |
 =========
+
 """
 
 
 stage_6 =r"""
-+---+
-|   |
-O   |
+ +---+
+ |   |
+ O   |
 /|\  |
 / \  |
-    |
+     |
 =========
+
 """
