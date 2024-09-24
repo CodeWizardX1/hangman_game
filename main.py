@@ -127,3 +127,4 @@ if num_wrong_answers == 6:
     print('SORRY YOU LOST :(')
 else:
     print('WINNER WINNER CHICKEN DINNER!')
+    print('The word was {}. Congratulations! You nailed it!'.format(random_word.upper()))
