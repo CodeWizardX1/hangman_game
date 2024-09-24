@@ -20,12 +20,21 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
 
 num_wrong_answers = 0
 
+category_dict = {}
+
 def update_secret_word(random_word, secret_word_list, letter):
     for i in range(len(random_word)):
         if random_word[i] == letter:
             secret_word_list[i] = letter
     return ''.join(secret_word_list)
 
+def list_categories(my_dict):
+    i = 1
+    for key in my_dict.keys():
+        print(str(i) + "." + " " + key)
+        category_dict[str(i)] = key
+        i += 1
+    return None
 
 
 #Print game Intro
@@ -52,13 +61,7 @@ Please select a category to begin:
 
 
 #List all categories
-i = 1
-category_dict = {}
-for key in game_words.keys():
-    print(str(i) + "." + " " + key)
-    category_dict[str(i)] = key
-    i += 1
-
+list_categories(game_words)
     
 print('\n')
 
@@ -108,7 +111,10 @@ while (secret_word_list != list(random_word)) and (num_wrong_answers != 6):
 
         
     if guessed_letter in random_word:
-        if num_of_times_letter_occurs == 1:
+        
+        if guessed_letter in secret_word_list:
+            print('You\'ve already guessed {}!'.format(guessed_letter))
+        elif num_of_times_letter_occurs == 1:
             print('Yes! There is {} {} in the word.\n'.format(num_of_times_letter_occurs, guessed_letter.upper()))
             print(update_secret_word(random_word, secret_word_list, guessed_letter))
             game_art.hangman(num_wrong_answers)   
