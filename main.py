@@ -124,6 +124,7 @@ while (secret_word_list != list(random_word)) and (num_wrong_answers != 6):
             game_art.hangman(num_wrong_answers)   
     else:
         print('Nope! There aren\'t any {}\'s is the word.\n'.format(guessed_letter.upper()))
+        print(update_secret_word(random_word, secret_word_list, guessed_letter))
         num_wrong_answers += 1
         game_art.hangman(num_wrong_answers)
         
