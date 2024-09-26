@@ -11,7 +11,7 @@ game_words = {
     'Movies': ['Inception', 'Titantic', 'Gladiator', 'Avatar', 'Interstellar'],
     'Famous People': ['Einstein', 'Shakespeare', 'Beethoven', 'Tesla', 'Gandhi'],
     'Foods': ['pizza', 'spaghetti', 'sushi', 'hamburger', 'tacos'],
-    'Cities': ['Paris', 'Tokyo', 'New York', 'Sydney', 'London'],
+    'Cities': ['Paris', 'Tokyo', 'NewYork', 'Sydney', 'London'],
     'Colors': ['red', 'purple', 'turquoise', 'magenta', 'lavender'],
     'Vehicles': ['airplane', 'motorcyle', 'bicycle', 'helicopter', 'submarine']
 }
